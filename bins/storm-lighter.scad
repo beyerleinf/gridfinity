@@ -2,7 +2,7 @@ include <base.scad>
 
 /* [General Settings] */
 // number of bases along x-axis
-gridx = 2;
+gridx = 3;
 // number of bases along y-axis
 gridy = 1;
 // bin height. See bin height information and "gridz_define" below.
@@ -31,7 +31,17 @@ c_depth = 1;
 c_chamfer = 0.5;
 
 module obj() {
-    translate([0,0,46]) cube([73, 29, 80], true);
+    translate([5,-5.25,5]) hull() {
+        translate([0,0,0]) cube([5, 10.5, 80]);
+        
+        translate([-11,5,0]) cylinder(h = 80, d = 8);
+        
+        translate([-10,0,0]) cylinder(h = 80, d = 8);
+        translate([-10,10,0]) cylinder(h = 80, d = 8);
+        
+        translate([-4,2,0]) cylinder(h = 80, d = 10);
+        translate([-4,8,0]) cylinder(h = 80, d = 10);
+    }
 }
 
 
